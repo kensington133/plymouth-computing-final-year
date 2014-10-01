@@ -1,0 +1,22 @@
+.main {
+	width: 200px;
+	color: #303030;
+	background: #c0c0c0;
+}
+
+.light {
+	background: #ff0000;
+	height: 100px;
+	width: 100px;
+	border-radius: 100px;
+	margin: 0 auto;
+}
+
+#next {
+	width: 100px;
+}
+
+.signature {
+	font-size: 13px;
+	font-style: italic;
+}
