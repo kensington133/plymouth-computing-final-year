@@ -1,4 +1,4 @@
-plymouth-computing-final-year
+Plymouth Computing Final Year
 =============================
 
-My various code from my final year at Plymouth
+My various code snippets and projects from my final year modules at Plymouth University
