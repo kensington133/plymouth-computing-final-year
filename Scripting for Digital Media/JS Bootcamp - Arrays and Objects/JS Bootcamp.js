@@ -54,10 +54,9 @@ function freezeDot() {
 	$('.lights .light').click( function(){
 
 		var lightID = $(this).attr('id');
-
-		//if item is already in there remove it
 		var index = frozenLights.indexOf(lightID);
 
+		//if item is already in there remove it
 		if(index > -1) {
 			frozenLights.splice(index, 1);
 		} else {
