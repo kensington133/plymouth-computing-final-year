@@ -1,0 +1,72 @@
+button {
+	margin: 5px;
+	float; left;
+	width: 80px;
+	border-radius: 8px;
+}
+
+.main {
+	float: left;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 50px;
+	width: 300px;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 20px;
+	background-color: #c0c0c0;
+	color: #303030;
+}
+
+.sub{
+	clear: left;
+}
+
+.lights {
+	height: auto;
+	overflow: auto;
+}
+
+.light {
+	float: left;
+	margin: 2px;
+	width: 20px;
+	height: 20px;
+	border: 2px solid;
+	border-radius: 10px;
+	background-color: #888888;
+}
+
+.controls {
+	margin-top: 40px;
+	clear: left;
+}
+
+.pre{
+	float: left;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.car {
+	height: auto;
+	overflow: auto;
+}
+
+.driverTxt{
+	margin-left: 10px;
+	margin-right: 20px;
+	width: 80px;
+}
+
+.wheelsTxt{
+	margin-left: 10px;
+	width: 20px;
+}
+
+.signature{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	font-size: small;
+	font-style: italic;
+}
