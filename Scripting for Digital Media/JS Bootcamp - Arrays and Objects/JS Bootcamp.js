@@ -57,15 +57,13 @@ function freezeDot() {
 
 		//if item is already in there remove it
 		var index = frozenLights.indexOf(lightID);
-		console.log(index);
+
 		if(index > -1) {
 			frozenLights.splice(index, 1);
 		} else {
 		//add it to frozen
 			frozenLights.push($(this).attr('id'));
 		}
-
-		console.log(frozenLights);
 	});
 }
 
