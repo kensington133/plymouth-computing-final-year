@@ -34,7 +34,15 @@ function allRandom() {
 
 		//array way
 		for(var i = 0; i < lights.length; i++){
-			if(frozenLights.indexOf($(lights[i]).attr('id')) === -1) {
+			for(var z = 0; z < frozenLights.length; z++){
+
+				if(frozenLights[z].attr('id') == $(lights[i]).attr('id')){
+					var frozenIndex = z;
+					break;
+				}
+			}
+
+			if(frozenIndex !== i) {
 				$(lights[i]).css('background-color', randomColor());
 				var randSize = Math.floor((Math.random() * 25) + 5);
 				$(lights[i]).height(randSize+'px').width(randSize+'px');
@@ -53,7 +61,7 @@ function freezeDot() {
 	//array way
 	$('.lights .light').click( function(){
 
-		var lightID = $(this).attr('id');
+		/*var lightID = $(this).attr('id');
 		var index = frozenLights.indexOf(lightID);
 
 		//if item is already in there remove it
@@ -62,7 +70,25 @@ function freezeDot() {
 		} else {
 		//add it to frozen
 			frozenLights.push($(this).attr('id'));
+		}*/
+
+		var light = $(this);
+		for(var b = 0; b < frozenLights.length; b++){
+			if(light.attr('id') == frozenLights[b].attr('id')) {
+				var index = b;
+				break;
+			}
 		}
+
+		if(index > -1){
+			frozenLights.splice(index, 1);
+		} else {
+			frozenLights.push($(this));
+		}
+
+		console.log(index);
+		console.log(frozenLights);
+
 	});
 }
 
