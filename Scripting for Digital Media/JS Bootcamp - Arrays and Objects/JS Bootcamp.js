@@ -11,7 +11,9 @@ function randomColor(){
 	return(rc);
 }
 
+//light funcs
 function allRed() {
+
 	$('#redBtn').click( function(){
 		$('.lights .light').css('background-color', 'red');
 	});
@@ -21,7 +23,7 @@ function allRandom() {
 
 	$('#rndBtn').click( function(){
 		//simple way
-		/*$('.lights .light:not(".frozen")').each( function( index ){
+		/*$('.lights .light:not(".frozen")').each( function(){
 
 			$(this).css('background-color', randomColor());
 
@@ -32,10 +34,11 @@ function allRandom() {
 
 		//array way
 		for(var i = 0; i < lights.length; i++){
-			$(lights[i]).css('background-color', randomColor());
-
-			var randSize = Math.floor((Math.random() * 25) + 5);
-			$(lights[i]).height(randSize+'px').width(randSize+'px');
+			if(frozenLights.indexOf($(lights[i]).attr('id')) === -1) {
+				$(lights[i]).css('background-color', randomColor());
+				var randSize = Math.floor((Math.random() * 25) + 5);
+				$(lights[i]).height(randSize+'px').width(randSize+'px');
+			}
 		}
 	});
 }
@@ -50,38 +53,45 @@ function freezeDot() {
 	//array way
 	$('.lights .light').click( function(){
 
-		frozenLights.push($(this).attr('id'));
-		console.log(frozenLights);
+		var lightID = $(this).attr('id');
 
-		for(var z = 0; z < frozenLights.length; z++) {
-			//skipping first two as they are added in somehow
-			if(z > 1) {
-				// console.log(frozenLights[z]);
-				$('#'+frozenLights[z])
-			}
+		//if item is already in there remove it
+		var index = frozenLights.indexOf(lightID);
+		console.log(index);
+		if(index > -1) {
+			frozenLights.splice(index, 1);
+		} else {
+		//add it to frozen
+			frozenLights.push($(this).attr('id'));
 		}
+
+		console.log(frozenLights);
 	});
 }
 
 
-
+//car funcs
 function displayCar() {
 
 	$('.driver').text('Driver: '+car.driver);
 
-	for(var i = 0; i < car.wheels; i++){
-		$('#wheelLight'+i).css('background-color', 'green');
-	}
+	//reset all to grey before changing to green
+	$('.car .light').css('background-color', '#888888');
 
+	for(var i = 0; i < car.wheels; i++){
+		$(wheelLights[i]).css('background-color', '#00ff00');
+	}
 }
 
 function changeCar() {
+
 	$('#displayBtn').click( function(){
+
 		car.driver = $('.driverTxt').val();
 		car.wheels = $('.wheelsTxt').val();
+
 		displayCar();
 	});
-
 }
 
 $(function(){
