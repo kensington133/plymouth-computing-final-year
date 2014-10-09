@@ -17,7 +17,7 @@ function resetLights(){
     }
 }
 
-test("testing whether the lights turn red when 'red' is clicked", 
+test("testing whether the lights turn red when 'red' is clicked",
     function(){
     $("#redBtn").click();
     var redCount = 0;
@@ -111,7 +111,7 @@ test("testing whether lights are un-frozen when clicked a second time",
             break;
         }
     }
-    ok(unFrozenChanges,"checking that non-frozen lights change");    
+    ok(unFrozenChanges,"checking that non-frozen lights change");
     resetLights();
 });
 
@@ -119,7 +119,7 @@ test("testing whether the car object is correctly declared", function(){
     equal(car.driver,
         "Barry","Checking that the car's driver is set to Barry");
     equal(car.wheels,3,
-        "checking that the car's wheel value is 3");    
+        "checking that the car's wheel value is 3");
 });
 
 test("testing whether the car divs reflect the values of the car object",
