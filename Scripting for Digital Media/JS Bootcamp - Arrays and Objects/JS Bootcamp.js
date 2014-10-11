@@ -13,7 +13,7 @@ function randomColor(){
 
 //light funcs
 function allRed() {
-
+	//click on red button changes all instances of the class light to red
 	$('#redBtn').click( function(){
 		$('.lights .light').css('background-color', 'red');
 	});
@@ -22,7 +22,7 @@ function allRed() {
 function allRandom() {
 
 	$('#rndBtn').click( function(){
-		//simple way
+		//jQuery way
 		/*$('.lights .light:not(".frozen")').each( function(){
 
 			$(this).css('background-color', randomColor());
@@ -34,25 +34,21 @@ function allRandom() {
 
 		//array way
 		for(var i = 0; i < lights.length; i++){
+
+			//for each light check if in frozen array
 			for(var z = 0; z < frozenLights.length; z++){
 
 				if(frozenLights[z].id == $(lights[i]).attr('id')){
-
-
-
 					var frozenIndex = z;
 					break;
 				}
 			}
 
+			//if it isn't in the array change the colour and sizes
 			if(frozenIndex !== i) {
 				$(lights[i]).css('background-color', randomColor());
 				var randSize = Math.floor((Math.random() * 25) + 5);
 				$(lights[i]).height(randSize+'px').width(randSize+'px');
-			} else {
-				var curHeight = $(lights[i]).height();
-				var curWidth = $(lights[i]).width();
-				$(lights[i]).height(curHeight+'px').width(curWidth+'px');
 			}
 		}
 	});
@@ -60,7 +56,7 @@ function allRandom() {
 
 function freezeDot() {
 
-	//simple way
+	//jQuery way
 	/*$('.lights .light').click( function(){
 		$(this).toggleClass('frozen');
 	});*/
@@ -68,6 +64,7 @@ function freezeDot() {
 	//array way
 	$('.lights .light').click( function(){
 
+		//check if light is in frozen array
 		var light = $(this)[0];
 		for(var b = 0; b < frozenLights.length; b++){
 			if(light.id == frozenLights[b].id) {
@@ -76,12 +73,13 @@ function freezeDot() {
 			}
 		}
 
+		//if it is take it out
 		if(index > -1){
 			frozenLights.splice(index, 1);
 		} else {
+			//otherwise add it to the frozen array
 			frozenLights.push($(this)[0]);
 		}
-		console.log(frozenLights)
 	});
 }
 
@@ -89,11 +87,13 @@ function freezeDot() {
 //car funcs
 function displayCar() {
 
+	//update text to current driver name
 	$('.driver').text('Driver: '+car.driver);
 
 	//reset all to grey before changing to green
 	$('.car .light').css('background-color', '#888888');
 
+	//for each car wheel change to green
 	for(var i = 0; i < car.wheels; i++){
 		$(wheelLights[i]).css('background-color', '#00ff00');
 	}
@@ -101,18 +101,21 @@ function displayCar() {
 
 function changeCar() {
 
+	//when display button is pressed
 	$('#displayBtn').click( function(){
 
+		//update object
 		car.driver = $('.driverTxt').val();
 		car.wheels = $('.wheelsTxt').val();
 
+		//call display function to update values on screen
 		displayCar();
 	});
 }
 
 $(function(){
 
-	// Your code here.
+	//Call all functions when DOM is loaded
 	allRed();
 	allRandom();
 	freezeDot();
