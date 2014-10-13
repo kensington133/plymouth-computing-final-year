@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="qunit-1.12.0.css">
+	<script src="qunit-1.12.0.js"></script>
+	<script src="JSBootcamp tests.js"></script>
+
+	<link rel="stylesheet" href="JSBootcamp.css">
+	<script src="jquery-1.10.2.js"></script>
+	<script src="Size.js"></script>
+	<script src="Light.js"></script>
+	<script src="LightInherit.js"></script>
+	<script src="LightInheritExtend.js"></script>
+	<script src="JSBootcamp.js"></script>
+
+	<title>More Lights</title>
+</head>
+
+<body>
+	<h1>Light Objects</h1>
+	<div class="panels">
+
+		<div class="panel">
+			<h2>Light Control:</h2>
+			<div class="contentPanel">
+				<div class="input">
+					<input type="checkbox" id="inherit">Inherit from the Size class</input>
+				</div>
+				<div class="widgetArea">
+					<div class="input">
+						<input type="radio" class="methods" name="methods" id="override">Override superclass methods</input>
+					</div>
+					<div class="input">
+						<input type="radio" class="methods" name="methods" id="extend">Extend superclass methods</input>
+					</div>
+				</div>
+			</div>
+			<button id="createLight">Create Light</button>
+			<button class="testButton" id="createSize">Create Size</button>
+		</div> <!-- div class="panel" -->
+
+		<div class="panel">
+			<h2>Display:</h2>
+			<div class="contentPanel" id="displayContentPanel"></div>
+			<button id="change">Change</button>
+			<button id="changeLight">Change Light</button>
+			<button id="changeSize">Change Size</button>
+		</div> <!-- div class="panel" -->
+	</div> <!-- div class="panels" -->
+	<div class="signature">
+		by Torbjorn S. Dahl
+	</div> <!-- div class="signature" -->
+
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+</body>
+</html>
