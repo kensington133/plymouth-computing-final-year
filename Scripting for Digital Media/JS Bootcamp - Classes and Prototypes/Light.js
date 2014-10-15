@@ -17,6 +17,6 @@ function Light() {
 	}
 
 	this.change = function(){
-		this.setLight();
+		this.changeLight();
 	}
 }
