@@ -29,10 +29,12 @@ function createLight(){
 		if($("#override").prop('checked')){
 
 			// Add your LightInherit object initialisation code here...
+			lightObject = new LightInherit();
 
 		}else{ // The extend radio butten is checked
 
 			// Add your LightInheritExtend object initialisation code here...
+			lightObject = new LightInheritExtend();
 
 		}
 
